@@ -1,0 +1,107 @@
+	html, body {
+		height: 100%;
+	}
+	body {
+		font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		background-repeat: no-repeat;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../../assets/img/bg-masthead.jpg");
+		background-position: center;
+		background-size: cover;
+		width: 100vw;
+		height: 100vh;
+		
+		
+	  }
+	  
+	
+	.demo-container {
+		height: 100%;
+		display:flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		
+	}
+	.btn-light {
+		--bs-btn-color: #000;
+		--bs-btn-bg: #f8f9fa;
+		--bs-btn-border-color: #f8f9fa;
+		--bs-btn-hover-color: #000;
+		--bs-btn-hover-bg: #d3d4d5;
+		--bs-btn-hover-border-color: #c6c7c8;
+		--bs-btn-focus-shadow-rgb: 211, 212, 213;
+		--bs-btn-active-color: #000;
+		--bs-btn-active-bg: #c6c7c8;
+		--bs-btn-active-border-color: #babbbc;
+		--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+		--bs-btn-disabled-color: #000;
+		--bs-btn-disabled-bg: #f8f9fa;
+		--bs-btn-disabled-border-color: #f8f9fa;
+	  }
+	.btn-lg {  /*bouton connecter*/
+		
+		padding: 12px 26px;
+		font-size: 14px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		
+	}
+	::placeholder {
+	font-size:14px;
+	letter-spacing:0.5px;
+	}
+	.form-control-lg {
+		
+		opacity: 30%;
+		font-size: 16px;
+		padding: 25px 20px;
+		height: 5vh;
+		
+	}
+	
+	.font-500{
+		
+	font-weight:500;
+	margin-top: 1%;
+	margin-bottom: 1%;	
+	}
+	.image-size-small{
+	width:140px;
+	margin:0 auto;	
+	}
+	.image-size-small img{
+	width:140px;
+	margin-bottom:-45px;
+	}
+	.icon-camera{
+	position: absolute;
+    right: -1px;
+    top: 21px;
+    width: 30px;
+    height: 30px;
+    background-color: #FFF;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	}
+	
+	.alert-danger {
+    
+		color: rgb(0, 0, 0);
+		padding: 0px;
+		border-radius: 4px;
+		margin-bottom: 10px;
+		color: #f44336;
+	  }
+
+	  .alert-success {
+    
+		color: rgb(0, 0, 0);
+		padding: 0px;
+		border-radius: 4px;
+		margin-bottom: 10px;
+		margin-top:5px;
+		color: #00ff62;
+	  }

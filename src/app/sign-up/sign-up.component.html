@@ -1,0 +1,39 @@
+<body>   
+    <link rel="stylesheet" href="https://cdn.lineicons.com/2.0/LineIcons.css">
+    <div class="demo-container">
+      <div class="container">
+        <div class="row" >
+          <div class="col-lg-5 col-12 mx-auto" >
+            <div class="text-center image-size-small position-relative">
+              <img src="../../assets/img/worker.png" class="rounded-circle p-2 ">
+              
+            </div>
+            <div class="p-5 bg- rounded shadow-lg">
+              <h3 class="mb-2 text-center pt-4">Create Account</h3>
+              
+              <form method="post" (ngSubmit)="register()"  #registerForm="ngForm">
+                
+                <label class="font-500">Email</label>
+                <input name="email" id="email" [(ngModel)]="user.email" class="form-control form-control-lg mb-3" type="email" required>
+                <div class="alert-danger" *ngIf="emailEmpty"><strong>Warning ! Email field cannot be empty</strong></div>
+                <div class="alert-danger" role="alert" *ngIf="emailExists"><strong>Warning ! Email already exists</strong></div>
+
+                <label class="font-500">Password</label>
+                <input name="password" id="password" [(ngModel)]="user.password"  class="form-control form-control-lg mb-3" type="password" required>
+                <div class="alert-danger" *ngIf="passwordEmpty"><strong>Warning ! Password field cannot be empty</strong></div>
+
+
+                <p class="m-0 py-4"><a routerLink="/sign-in" class="text-light">Already have an Account </a></p>
+                <button class="btn btn-light btn-lg w-100 shadow-lg" type="submit" >Sign Up</button>
+              </form>
+              <div class="alert-success" *ngIf="registersuccess"><strong>Success ! Account created successfuly !</strong></div>
+
+             <!--<div class="text-center pt-4">
+              <p class="m-0">Vous n'avez pas de compte ? <a routerLink="/register-user" class="text-light font-weight-bold">Créez-en un !</a></p>
+            </div> -->  
+            </div>        
+          </div>
+        </div>
+      </div>
+    </div>
+    </body>

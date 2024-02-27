@@ -1,0 +1,48 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+   <div class="svg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="52" height="12" viewBox="0 0 52 12" fill="none">
+         <circle cx="6" cy="6" r="6" fill="#FF6252"/>
+         <circle cx="6" cy="6" r="5.5" stroke="black" stroke-opacity="0.1"/>
+         <circle cx="26" cy="6" r="6" fill="#FDAD15"/>
+         <circle cx="26" cy="6" r="5.5" stroke="black" stroke-opacity="0.1"/>
+         <circle cx="46" cy="6" r="6" fill="#2AC670"/>
+         <circle cx="46" cy="6" r="5.5" stroke="black" stroke-opacity="0.1"/>
+         </svg>
+   </div>  
+   <div class="logo-container">      
+      <button class="logo" (click)="toggleCollapse()">
+         <img class="image" src="../../assets/img/log.png" >
+      </button>
+      
+      <div class="logo-text" *ngIf="collapsed">Menu</div>
+      
+      <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+         <i class="fal fa-times close-icon"></i>
+      </button>
+   </div>
+   <ul class="sidenav-nav">
+     
+      <li class="sidenav-nav-item" *ngFor="let data of navData">
+        
+         <a href="" class="sidenav-nav-link" [routerLink]="[data.routeLink]" >
+            <i class="sidenav-link-icon" [class]="data.icon">
+               <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+            </i>
+         </a>
+        
+      </li>
+      
+      <li class="sidenav-nav-item logout-item" >
+        
+         <a  class="sidenav-nav-link" (click)="logout()" >
+            <i class="sidenav-link-icon fal fa-sign-out" >
+               <span class="sidenav-link-text" *ngIf="collapsed">Logout</span>
+            </i>
+         </a>
+        
+      </li>
+      
+      
+   </ul>
+  
+</div>

@@ -1,0 +1,147 @@
+<!--<app-sidebar></app-sidebar>-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+<body >
+  <app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+  <app-body
+  [collapsed]="isSideNavCollapsed"
+  [screenWidth]="screenWidth">
+</app-body>
+    <div class="container" >
+        <div class="row align-items-center">
+            <div class="col-md-6 ">
+              <div class="mb-3 d-flex col-md-6 justify-content-between mx-auto">
+                <div class="border p-2 thicker-border" >
+                  <p class="mb-0">Total Operations : {{ calculateTotalCamions() }}</p>
+                </div>
+                <div class="border p-2 thicker-border">
+                  <p class="mb-0 ">Total Pallets : {{ calculateTotalQuantity() }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6" >
+                <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3" >
+                    <div>
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a
+                                    aria-current="page"
+                                    
+                                    class="router-link-active router-link-exact-active nav-link active"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    title=""
+                                    data-bs-original-title="List"
+                                    aria-label="List"
+                                >
+                                    <i class="bx bx-list-ul"></i>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div>
+                        <a (click)="openDialog()"  class="btn btn-primary"><i class="bx bx-plus me-1"></i> Add New</a>
+                        
+                                                                 
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-lg-12">
+                <div class="" >
+                    <div class="table-responsive" >
+                   <!-- ... Previous content ... -->
+<div class="table-responsive">
+<table class="table project-list-table table-nowrap align-middle table-borderless">
+    <thead>
+      <tr>
+        <th scope="col" class="ps-4" style="width: 50px;">
+          <div class="form-check font-size-16">
+            <input type="checkbox" class="form-check-input" id="selectAllCheckbox" (change)="selectAllCamions($event)"  [checked]="isAllCamionsSelected()" />
+            <label class="form-check-label" for="selectAllCheckbox"></label>
+          </div>
+        </th>
+        <th scope="col">TRUCK</th>
+        <th scope="col">TYPE</th>
+        <th scope="col">SHIFT</th>
+        <th scope="col">CLUSTER</th>
+        <th scope="col">DESTINATION</th>
+        <th scope="col">CAPACITY</th>
+        <th scope="col">QUANTITY</th>
+        <th scope="col">DATE</th>
+        <th scope="col">START</th>
+        <th scope="col">END</th>
+        <th scope="col" style="width: 100px;">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of getCurrentPageData()" > <!-- Loop through the data array -->
+        <td cope="col" class="ps-4" style="width: 50px;">
+          <div class="form-check font-size-16">
+            <input type="checkbox" class="form-check-input" id="contacusercheck{{ item.id }}" [(ngModel)]="item.selected" (change)="checkCamionSelection()" />
+            <label class="form-check-label" for="contacusercheck{{ item.id }}"></label>
+          </div>
+        </td>
+        <td>
+            <img src="../../assets/img/un-camion.png" alt="" class="avatar-sm me-2" />
+            <a>{{ item.camion }}</a>
+          </td>
+        <td><span class="badge badge-soft-success mb-0">{{ item.type }}</span></td>
+        <td>{{ item.shift }}</td>
+        <td>{{ item.cluster }}</td>
+        <td>{{ item.destination }}</td>
+        <td>{{ item.capacity }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.debut }}</td>
+        <td>{{ item.fin }}</td>
+        <td>
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+              <a href="javascript:void(0);"  (click)="selectCamion(item)" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="javascript:void(0);" (click)="deleteCamion(item.id)" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
+
+            </li>
+            
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- ... Remaining content ... -->
+  
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row g-0 align-items-center pb-4">
+            <div class="col-sm-6">
+                <div><p class="mb-sm-0">{{ getShowingText() }}</p></div>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-sm-end">
+                    <ul class="pagination mb-sm-0">
+                        <li class="page-item">
+                            <a  class="page-link" (click)="navigateToPreviousPage()"><i class="mdi mdi-chevron-left"></i></a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of getPages()">
+                          <a  class="page-link"(click)="onPageChange(page)" [ngClass]="{ 'active' : currentPage === page }">{{ page }}</a>
+                        </li>
+                        
+                        <li class="page-item">
+                            <a  class="page-link" (click)="navigateToNextPage()"><i class="mdi mdi-chevron-right"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  
